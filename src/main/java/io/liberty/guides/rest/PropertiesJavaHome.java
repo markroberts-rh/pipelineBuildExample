@@ -1,3 +1,5 @@
+// Comment
+
 package io.openliberty.guides.rest;
 
 import java.util.Properties;
@@ -14,7 +16,7 @@ public class PropertiesJavaHome {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getProperties() {
-       String javaHome = System.getProperty("java.home");
+       String javaHome = "Java Home ==> " + System.getProperty("java.home");
 
        return(javaHome);
     }
