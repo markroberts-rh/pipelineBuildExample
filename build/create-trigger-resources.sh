@@ -1,4 +1,4 @@
-oc create --save-config=true -f build/triggers/eventListener.yaml 
-oc create --save-config=true -f build/triggers/eventListenerRoute.yaml 
-oc create --save-config=true -f build/triggers/triggerBinding.yaml 
-oc create --save-config=true -f build/triggers/triggerTemplate.yaml 
+oc create --save-config=true -f triggers/eventListener.yaml 
+oc create --save-config=true -f triggers/eventListenerRoute.yaml 
+oc create --save-config=true -f triggers/triggerBinding.yaml 
+oc create --save-config=true -f triggers/triggerTemplate.yaml 
