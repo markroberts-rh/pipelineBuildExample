@@ -10,10 +10,6 @@ spec:
     value: $(body.repository.html_url)
   - name: gitrepository.fullname
     value: $(body.repository.full_name)
-  - name: pull_request_title
-    value: $(body.pull_request.title)
-  - name: pull_request_action
-    value: $(body.action)
   - name: commit.ref
     value: $(body.ref)
   - name: commit.id
