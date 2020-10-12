@@ -4,24 +4,16 @@ metadata:
   name: liberty-rest-trigger-pipeline-template
 spec:
   params:
-  - name: gitrevision
-    description: The git revision
-    default: master
   - name: gitrepository.url
-    description: The git repository url
   - name: gitrepository.fullname
-    description : The full name of the Git repository
-  - name: pull_request_title
-    description: The title of the pull request  
-  - name: pull_request_action
-    description: The action performed within the pull request 
-  - name: service-account
-    description: The ServiceAccount under which to run the Pipeline.    
+  - name: gitrevision
+  - name: commit.prior_revision
   - name: commit.ref
   - name: commit.id
   - name: commit.date
   - name: commit.message
   - name: commit.author
+  - name: service-account
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
@@ -59,16 +51,14 @@ spec:
           value: "liberty-rest"
         - name: quay-io-image-tag-name
           value: "latest"
-        - name: title
-          value: $(params.pull_request_title)
-        - name: revision
-          value: $(params.gitrevision)
         - name: url
           value: $(params.gitrepository.url)
         - name: gitrepository_fullname
           value: $(params.gitrepository.fullname)
-        - name: action
-          value: $(params.pull_request_action)
+        - name: revision
+          value: $(params.gitrevision)
+        - name: commit_prior_revision
+          value: $(params.commit.prior_revision)
         - name: commit_ref
           value: $(params.commit.ref)
         - name: commit_id
